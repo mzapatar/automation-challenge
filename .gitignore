@@ -169,3 +169,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+test_another_input_from_excel.py
+test_example.py
+test_new.py
+test_one_more_input_from_excel.py
