@@ -13,42 +13,43 @@ This repository contains my solution to [The Automation Challenge](https://www.t
 
 ## Setup
 
-### **Clone the Repository**
+### Clone the Repository
+Use the following terminal commands to clone the repository and then open the project folder:
 ```bash
 git clone https://github.com/mzapatar/automation-challenge.git
 cd automation-challenge
 ```
 
-### **Install Dependencies**
+### Create a Virtual Environment (optional)
+For Mac/Linux:
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+For Windows:
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### **Install Playwright and Browsers**
+### Install Playwright and Browsers
 ```bash
 python -m playwright install --with-deps
 ```
 
-## Running the test
-Use the following terminal command to run the test with the default configuration:
+## Running the script
 ```bash
 python main.py
 ```
-By default, the script runs in headed mode in Chromium (Google Chrome).
-
-## Prerequisites
-
-- Python 3.8+
-- Playwright (for browser automation)
-- openpyxl (for reading Excel files)
-
-To install all dependencies, run:
-```bash
-pip install -r requirements.txt
-```
+By default, the script runs in **headed** mode in **Chromium (Google Chrome).**
 
 ## Assumptions made during development
 
-- The user already has Python and pip installed.
-- The Excel file (challenge.xlsx) exists in the project root and contains valid test data. The file is provided when cloning the repository, but can also be obtained in [The Automation Challenge](https://www.theautomationchallenge.com/).
-- The test credentials (mariana@email.com / 1234) are valid for login. The current iteration of this test suite does not support other users.
+- The user already has Python and pip installed. Depending on the versions installed, ```python3``` and ```pip3``` may be used instead of ```python``` and ```pip``` in the terminal.
+- The Excel file (```challenge.xlsx```) exists in the project root and contains valid test data. The file is provided when cloning the repository, but can also be obtained in [The Automation Challenge](https://www.theautomationchallenge.com/).
+- The credentials stored in ```config.py``` are valid for login.
