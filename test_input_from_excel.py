@@ -49,7 +49,15 @@ print(excel_data)
 
 # STEP 3: Function to locate input fields dynamically
 async def get_input_field(page: Page, label_text: str):
-    return page.locator("div.bubble-r-box:visible", has_text=re.compile(f"^{label_text}$")).locator("input")
+    locators = await page.locator("div.bubble-element.Group").filter(has_text=f"{label_text}").all()
+
+    for group_locator in locators:
+        if await group_locator.is_visible() and await group_locator.text_content() == label_text:
+            input_locators = await group_locator.locator("input").all()
+            for input_locator in input_locators:
+                if await input_locator.is_visible():
+                    print("Found visible input within the group")
+                    return input_locator  
 
 # STEP 4: Test function with parameterized data
 @pytest.mark.parametrize("employer_identification_number, company_name, sector, company_address, automation_tool, annual_automation_saving, date_of_first_project", excel_data)
